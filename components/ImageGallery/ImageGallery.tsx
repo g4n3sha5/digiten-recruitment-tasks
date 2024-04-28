@@ -5,7 +5,6 @@ import { TaskContainer } from '@/components/ui/TaskContainer';
 import { images } from '@/public/utils';
 import { useState } from 'react';
 
-
 export default function ImageGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageOpen, setImageOpen] = useState<boolean>();
@@ -35,7 +34,6 @@ export default function ImageGallery() {
         <div className="flex flex-wrap lg:flex-nowrap items-center w-full lg:gap-x-1 bg-white">
           {images.map((image, index) => (
             <div
-            
               key={index}
               onClick={() => {
                 setImageOpen(true);
@@ -53,7 +51,6 @@ export default function ImageGallery() {
         {/* Modal section */}
         {imageOpen && (
           <Modal
-            imageOpen={imageOpen}
             setImageOpen={setImageOpen}
             incrementIndex={incrementIndex}
             decrementIndex={decrementIndex}

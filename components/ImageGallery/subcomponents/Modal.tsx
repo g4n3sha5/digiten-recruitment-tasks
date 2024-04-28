@@ -5,14 +5,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface ModalProps {
-  imageOpen: boolean;
   setImageOpen: (bool: boolean) => void;
   incrementIndex: () => void;
   decrementIndex: () => void;
   currentIndex: number;
 }
 
-export const Modal = ({ imageOpen, setImageOpen, incrementIndex, decrementIndex, currentIndex }: ModalProps) => {
+export const Modal = ({ setImageOpen, incrementIndex, decrementIndex, currentIndex }: ModalProps) => {
   const [dragStartX, setDragStartX] = useState(0);
 
   // Swipe handler on mobile using react-swipable
@@ -38,22 +37,20 @@ export const Modal = ({ imageOpen, setImageOpen, incrementIndex, decrementIndex,
 
   const handleDragEnd = (evt: MouseEvent | PointerEvent) => {
     const deltaX = evt.clientX - dragStartX;
-    if (deltaX > 75) {
+    if (deltaX > -75) {
       decrementIndex();
-    } else if (deltaX < -75) {
+    } else if (deltaX < 75) {
       incrementIndex();
     }
   };
 
   return (
     <div
-      //   {...swipeHandlers}
+      {...swipeHandlers}
       onClick={() => {
         setImageOpen(false);
       }}
-      className={`${
-        true // imageOpen ? 'opacity-100 flex' : 'opacity-0 hidden'
-      } flex w-screen h-screen transition-all backdrop-blur-lg select-none backdrop-saturate-150 backdrop-contrast-125 backdrop-brightness-[35%] fixed top-0 items-center justify-center z-20
+      className={`flex w-screen h-screen transition-all backdrop-blur-lg select-none backdrop-saturate-150 backdrop-contrast-125 backdrop-brightness-[35%] fixed top-0 items-center justify-center z-20
       `}
     >
       <div className="w-full flex justify-center relative">
@@ -70,7 +67,7 @@ export const Modal = ({ imageOpen, setImageOpen, incrementIndex, decrementIndex,
           transition={sliderTransition}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.21}
+          dragElastic={0.08}
           tabIndex={0}
           whileTap={{ cursor: 'grabbing' }}
           className="border-white rounded-xl w-screen  h-screen md:h-[90vh] md:w-[80%]  cursor-grab overflow-hidden relative"
@@ -92,6 +89,7 @@ export const Modal = ({ imageOpen, setImageOpen, incrementIndex, decrementIndex,
     </div>
   );
 };
+
 // Arrow left / arrow right on slide aside
 const ImageArrowAside = ({ onClick, direction }: { onClick: () => void; direction: 'left' | 'right' }) => {
   const Comp = direction === 'left' ? ChevronLeft : ChevronRight;
