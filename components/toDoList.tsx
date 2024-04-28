@@ -1,6 +1,6 @@
 'use client';
 
-import { TaskHeader } from '@/components/ui/TaskHeader';
+import { TaskContainer } from '@/components/ui/TaskContainer';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
 import { Trash } from 'react-bootstrap-icons';
@@ -53,17 +53,15 @@ export default function ToDoList() {
   }, [tasks]);
 
   return (
-    <section tabIndex={0} id="task3" className="relative min-h-screen pt-2 bg-indigo-600 ">
-      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2 "></div>
-      <div className="relative pt-12 mx-auto text-center">
-        <TaskHeader
-          number={3}
-          textColorClass="text-white"
-          description="Create a to-do list application using React.js that allows users to add, reorder, and remove tasks using drag-and-drop 
-          interactions. This task will test your ability to work with React state management and user interactions."
-        />
-      </div>
-
+    <TaskContainer
+      tabIndex={0}
+      id="toDoList"
+      className="relative min-h-screen pt-2 bg-indigo-600 "
+      textColorClass="text-white"
+      taskNumber={3}
+      taskDescription="Create a to-do list application using React.js that allows users to add, reorder, and remove tasks using drag-and-drop 
+    interactions. This task will test your ability to work with React state management and user interactions."
+    >
       <div className="bg-indigo-500 flex flex-col items-center gap-y-3">
         <h1 className="text-xl my-2 font-semibold">Drag and Drop To-Do List</h1>
         <form
@@ -104,11 +102,11 @@ export default function ToDoList() {
           </Droppable>
         </DragDropContext>
       </div>
-    </section>
+    </TaskContainer>
   );
 }
 
-export const Task = ({
+export const Task = ({ 
   task,
   removeTask,
   index,
@@ -120,7 +118,7 @@ export const Task = ({
   <Draggable index={index} draggableId={task.id}>
     {(provided) => (
       <li
-        className="flex w-1/3 shadow-blue-500  max-w-full px-4 items-center py-2 border bg-indigo-700 justify-between text-white border-black rounded-lg gap-x-3 text-wrap"
+        className="flex w-full lg:w-1/3 shadow-blue-500  max-w-full px-4 items-center py-2 border bg-indigo-700 justify-between text-white border-black rounded-lg gap-x-3 text-wrap"
         {...provided.draggableProps}
         {...provided.dragHandleProps}
         ref={provided.innerRef}

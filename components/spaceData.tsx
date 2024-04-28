@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { TaskContainer } from '@/components/ui/TaskContainer';
 import { Chart, registerables } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { GraphDownArrow, GraphUpArrow } from 'react-bootstrap-icons';
-import { TaskHeader } from '@/components/ui/TaskHeader';
+import { Bar } from 'react-chartjs-2';
 
 Chart.register(...registerables);
 
@@ -85,83 +85,79 @@ export default function SpaceData() {
   }, []);
 
   return (
-    <section id="task1" className="relative min-h-screen pb-24 xpt-2">
-      <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2 "></div>
+    <TaskContainer
+      id="spaceData"
+      taskNumber={1}
+      className="relative min-h-screen pb-24 xpt-2"
+      taskDescription="Your company is developing a dashboard to display real-time data from various sources. You are tasked with creating a data visualisation component that displays live data using React.js and integrates it with HTML
+    and CSS for a seamless user interface"
+    >
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <div className="pt-12 md:pt-20 z-10">
-          {/* Custom component for task headers, will be used for all of the tasks */}
-          <TaskHeader
-            number={1}
-            description="Your company is developing a dashboard to display real-time data from various sources. You are tasked with
-              creating a data visualisation component that displays live data using React.js and integrates it with HTML
-              and CSS for a seamless user interface"
-          />
-          <div className="text-center text-gray-800">
-            API URL:&nbsp;
-            <a className="text-cyan-600 hover:text-cyan-300" href={apiUrl}>
-              {apiUrl}
-            </a>
-          </div>
+        <div className="text-center text-gray-800">
+          API URL:&nbsp;
+          <a className="text-cyan-600 hover:text-cyan-300" href={apiUrl}>
+            {apiUrl}
+          </a>
         </div>
+      </div>
 
-        <div className="py-4">
-          <h1 className="pb-7">
-            Humans love numbers. Below you can see the amount of some of the objects we counted in the Solar System
-            using logarithmic scale chart.
-          </h1>
+      <div className="py-4 flex items-center flex-col justify-center px-4 w-full">
+        <h1 className="pb-7">
+          Humans love numbers. Below you can see the amount of some of the objects we counted in the Solar System using
+          logarithmic scale chart.
+        </h1>
 
-          {error ? (
-            <h1 className="py-5 text-3xl">{error}</h1>
-          ) : (
-            <div className="mt-10 relative mb-5">
-              <div className="absolute right-0 -top-12 md:-top-6 flex flex-col ">
-                <h1 className="">Sort </h1>
-                <div className="flex gap-x-2 md:gap-x-3">
-                  <GraphUpArrow
-                    className="h-5 w-5 md:w-7  cursor-pointer"
-                    color={sorting === 'asc' ? 'cyan' : 'black'}
-                    onClick={() => {
-                      setSorting('asc');
-                    }}
-                  />
-                  <GraphDownArrow
-                    className="h-5 w-5 md:w-7  cursor-pointer"
-                    color={sorting === 'desc' ? 'cyan' : 'black'}
-                    onClick={() => {
-                      setSorting('desc');
-                    }}
-                  />
-                </div>
-              </div>
-              <div className=" h-[550px]">
-                <Bar
-                  data={{
-                    labels: chartData.map((obj) => obj.label),
-                    datasets: [
-                      {
-                        label: 'Amount of object in Solar System',
-                        backgroundColor: ['#4361EE', 'cyan', 'red', 'grey', 'darkGrey', '#3A0CA3'],
-                        data: chartData.map((obj) => obj.value),
-                        borderWidth: 1,
-                      },
-                    ],
+        {error ? (
+          <h1 className="py-5 text-3xl">{error}</h1>
+        ) : (
+          <div className="mt-10 relative mb-5 w-full">
+            <div className="absolute right-0 -top-12 md:-top-6 flex flex-col ">
+              <h1 className="">Sort </h1>
+              <div className="flex gap-x-2 md:gap-x-3">
+                <GraphUpArrow
+                  className="h-5 w-5 md:w-7  cursor-pointer"
+                  color={sorting === 'asc' ? 'cyan' : 'black'}
+                  onClick={() => {
+                    setSorting('asc');
                   }}
-                  // Options to make the chart repsonsive
-                  options={{
-                    events: ['mousemove', 'mouseout', 'touchstart', 'touchmove'],
-                    maintainAspectRatio: false,
-                    scales: {
-                      y: {
-                        type: 'logarithmic', // Use logarithmic scale for the y-axis
-                      },
-                    },
+                />
+                <GraphDownArrow
+                  className="h-5 w-5 md:w-7  cursor-pointer"
+                  color={sorting === 'desc' ? 'cyan' : 'black'}
+                  onClick={() => {
+                    setSorting('desc');
                   }}
                 />
               </div>
             </div>
-          )}
-        </div>
+            <div className=" h-[550px]">
+              <Bar
+                data={{
+                  labels: chartData.map((obj) => obj.label),
+                  datasets: [
+                    {
+                      label: 'Amount of object in Solar System',
+                      backgroundColor: ['#4361EE', 'cyan', 'red', 'grey', 'darkGrey', '#3A0CA3'],
+                      data: chartData.map((obj) => obj.value),
+                      borderWidth: 1,
+                    },
+                  ],
+                }}
+                // Options to make the chart repsonsive
+                options={{
+                  events: ['mousemove', 'mouseout', 'touchstart', 'touchmove'],
+                  maintainAspectRatio: false,
+                  scales: {
+                    y: {
+                      type: 'logarithmic', // Use logarithmic scale for the y-axis
+                    },
+                  },
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
-    </section>
+    </TaskContainer>
   );
 }

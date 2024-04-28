@@ -19,17 +19,23 @@ export default function Hero() {
 
             <div className="max-w-3xl mx-auto flex center justify-center gap-x-4">
               <div>
-                <a className="btn text-white bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto sm:mb-0" href="#task1">
+                <a
+                  className="btn text-white bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto sm:mb-0"
+                  href="#spaceData"
+                >
                   Task 1
                 </a>
               </div>
               <div>
-                <a className="btn text-white bg-blue-900 hover:bg-gray-800 w-full sm:w-auto " href="#task2">
+                <a className="btn text-white bg-blue-900 hover:bg-gray-800 w-full sm:w-auto " href="#imageGallery">
                   Task 2
                 </a>
               </div>
               <div>
-                <a className="btn text-white bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0" href="#task3">
+                <a
+                  className="btn text-white bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+                  href="#toDoList"
+                >
                   Task 3
                 </a>
               </div>
