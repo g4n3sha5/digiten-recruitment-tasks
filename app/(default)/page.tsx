@@ -5,7 +5,7 @@ export const metadata = {
 
 import Hero from '@/components/Hero';
 import SpaceData from '@/components/SpaceData';
-import ImageGallery from '@/components/ImageGallery';
+import ImageGallery from '@/components/ImageGallery/ImageGallery';
 import ToDoList from '@/components/ToDoList';
 
 export default function Home() {

@@ -110,7 +110,7 @@ export default function SpaceData() {
         {error ? (
           <h1 className="py-5 text-3xl">{error}</h1>
         ) : (
-          <div className="mt-10 relative mb-5 w-full">
+          <div className="mt-10 relative mb-5 w-full md:w-2/3 lg:w-1/2">
             <div className="absolute right-0 -top-12 md:-top-6 flex flex-col ">
               <h1 className="">Sort </h1>
               <div className="flex gap-x-2 md:gap-x-3">
