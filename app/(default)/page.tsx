@@ -1,22 +1,20 @@
 export const metadata = {
-  title: 'Home - Simple',
-  description: 'Page description',
-}
+  title: 'Recruitment tasks for Digiten',
+  description: 'Kamil Matysiak recruitment process',
+};
 
-import Hero from '@/components/hero'
-import Features from '@/components/features'
-import FeaturesBlocks from '@/components/features-blocks'
-import Testimonials from '@/components/testimonials'
-import Newsletter from '@/components/newsletter'
+import Hero from '@/components/hero';
+import SpaceData from '@/components/spaceData';
+import ImageGallery from '@/components/imageGallery';
+import ToDoList from '@/components/toDoList';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
-      <FeaturesBlocks />
-      <Testimonials />
-      <Newsletter />
+      <SpaceData />
+      <ImageGallery />
+      <ToDoList />
     </>
-  )
+  );
 }

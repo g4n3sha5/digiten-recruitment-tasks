@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
+        gallery: {
+          normal: 'rgba(0,0,0,0.4)',
+          hover: 'rgba(0,0,0,0.56)',
+        },
         gray: {
           100: '#FBFBFB',
           200: '#EAEAEA',
@@ -76,7 +76,7 @@ module.exports = {
       },
       inset: {
         '1/2': '50%',
-        'full': '100%',
+        full: '100%',
       },
       letterSpacing: {
         tighter: '-0.02em',
@@ -94,32 +94,32 @@ module.exports = {
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
-        '3': '.75rem',
-        '4': '1rem',
-        '5': '1.2rem',
-        '6': '1.5rem',
-        '7': '1.75rem',
-        '8': '2rem',
-        '9': '2.25rem',
-        '10': '2.5rem',
+        3: '.75rem',
+        4: '1rem',
+        5: '1.2rem',
+        6: '1.5rem',
+        7: '1.75rem',
+        8: '2rem',
+        9: '2.25rem',
+        10: '2.5rem',
       },
       minWidth: {
-        '10': '2.5rem',
-        '48': '12rem',
+        10: '2.5rem',
+        48: '12rem',
       },
       opacity: {
-        '90': '0.9',
+        90: '0.9',
       },
       scale: {
-        '98': '.98'
+        98: '.98',
       },
       animation: {
         float: 'float 3s ease-in-out infinite',
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0)', },
-          '50%': { transform: 'translateY(-5%)', },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5%)' },
         },
       },
       zIndex: {
@@ -127,7 +127,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require('@tailwindcss/forms')],
 };

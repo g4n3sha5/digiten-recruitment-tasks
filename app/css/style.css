@@ -11,8 +11,10 @@
 
 /* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
 @layer utilities {
-    .rtl {
-        direction: rtl;
-    }
+  .rtl {
+    direction: rtl;
+  }
+  .textShadow {
+    text-shadow: -11px 11px #3f37c9;
+  }
 }
-
