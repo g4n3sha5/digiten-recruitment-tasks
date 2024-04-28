@@ -3,10 +3,10 @@ export const metadata = {
   description: 'Kamil Matysiak recruitment process',
 };
 
-import Hero from '@/components/hero';
-import SpaceData from '@/components/spaceData';
-import ImageGallery from '@/components/imageGallery';
-import ToDoList from '@/components/toDoList';
+import Hero from '@/components/Hero';
+import SpaceData from '@/components/SpaceData';
+import ImageGallery from '@/components/ImageGallery';
+import ToDoList from '@/components/ToDoList';
 
 export default function Home() {
   return (

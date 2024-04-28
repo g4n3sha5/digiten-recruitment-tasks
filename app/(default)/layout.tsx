@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Footer from '@/components/ui/footer';
+import Footer from '@/components/ui/Footer';
 
 export default function DefaultLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {

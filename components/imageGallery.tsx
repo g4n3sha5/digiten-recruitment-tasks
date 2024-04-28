@@ -1,6 +1,6 @@
 'use client';
 
-import { TaskHeader } from '@/components/ui/taskHeader';
+import { TaskHeader } from '@/components/ui/TaskHeader';
 import thumb1 from '@/public/images/thumb1.jpg';
 import thumb2 from '@/public/images/thumb2.jpg';
 import thumb3 from '@/public/images/thumb3.jpg';
@@ -37,7 +37,6 @@ export default function ImageGallery() {
   const handleMouseDown = (evt: React.MouseEvent<HTMLDivElement>) => {
     setDragStartX(evt.clientX); // Record the initial X position when mouse is pressed down
   };
-
   const handleMouseUp = (evt: React.MouseEvent<HTMLDivElement>) => {
     const deltaX = evt.clientX - dragStartX;
     if (deltaX > 75) {
@@ -106,14 +105,14 @@ export default function ImageGallery() {
           }}
           className="border-white rounded-xl w-screen h-screen md:h-[90vh] md:w-[80%] object-cover relative "
         >
-          <img src={images[currentIndex].src} className="w-full h-full object-cover" />
+          <img src={images[currentIndex].src} className="w-full h-full object-cover cursor-grab" />
           <div className="w-full" onClick={() => setImageOpen(false)}>
             <XLg color="ghostwhite" className="cursor-pointer absolute top-6 right-6 w-8 h-8 z-30" />
           </div>
-
           <ImageArrowAside onClick={decrementIndex} direction="left" />
           <ImageArrowAside onClick={incrementIndex} direction="right" />
         </div>
+
         <div className="absolute text-white bottom-4">
           {currentIndex + 1}/{images.length}
         </div>

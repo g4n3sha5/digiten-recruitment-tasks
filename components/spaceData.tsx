@@ -1,10 +1,10 @@
 'use client';
 
-import { TaskHeader } from '@/components/ui/taskHeader';
 import { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { GraphDownArrow, GraphUpArrow } from 'react-bootstrap-icons';
+import { TaskHeader } from '@/components/ui/TaskHeader';
 
 Chart.register(...registerables);
 

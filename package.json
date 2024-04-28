@@ -15,6 +15,7 @@
     "@types/react-dom": "^18.2.17",
     "aos": "^3.0.0-beta.6",
     "chart.js": "^4.4.2",
+    "framer-motion": "^11.1.7",
     "next": "^14.0.4",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -22,7 +23,8 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "react-swipeable": "^7.0.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

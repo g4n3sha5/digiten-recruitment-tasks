@@ -1,9 +1,10 @@
 'use client';
 
-import { TaskHeader } from '@/components/ui/taskHeader';
+import { TaskHeader } from '@/components/ui/TaskHeader';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
 import { Trash } from 'react-bootstrap-icons';
+import { uuid } from 'uuidv4';
 
 interface Task {
   id: string;
@@ -14,6 +15,7 @@ export default function ToDoList() {
   const [taskName, setTaskName] = useState('');
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  // Move items when Drag ends
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const updatedTasks = Array.from(tasks);
@@ -24,7 +26,8 @@ export default function ToDoList() {
 
   const addTask = () => {
     if (!taskName) return;
-    const newTask = { id: 'id' + tasks.length + 1, content: taskName };
+    const id = uuid();
+    const newTask = { id: id, content: taskName };
     setTasks([...tasks, newTask]);
   };
 
@@ -33,7 +36,7 @@ export default function ToDoList() {
     setTasks(filteredTasks);
   };
 
-  // Load tasks from memory on component mount
+  // Load tasks from memory on first component mount
   useEffect(() => {
     if (tasks.length > 0) return;
     const storedTasks = localStorage.getItem('todoTasks');
@@ -44,6 +47,8 @@ export default function ToDoList() {
 
   // Save tasks to local storage whenever tasks state changes
   useEffect(() => {
+    const storedTasks = localStorage.getItem('todoTasks');
+    if (storedTasks && tasks === JSON.parse(storedTasks)) return;
     localStorage.setItem('todoTasks', JSON.stringify(tasks));
   }, [tasks]);
 
@@ -65,7 +70,7 @@ export default function ToDoList() {
           onSubmit={(e) => {
             e.preventDefault();
           }}
-          className="flex gap-x-3 items-center px-6"
+          className="flex gap-x-3 items-center justify-center px-6 lg:w-4/12"
         >
           <input
             placeholder="Enter task name..."
@@ -111,23 +116,21 @@ export const Task = ({
   task: Task;
   removeTask: (taskId: string) => void;
   index: number;
-}) => {
-  return (
-    <Draggable index={index} draggableId={task.id}>
-      {(provided) => (
-        <li
-          className="flex w-min max-w-full px-10 items-center py-2 border bg-indigo-700 justify-center text-white border-black rounded-lg gap-x-3 text-wrap"
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-        >
-          <span className="font-bold">{index + 1}.</span>
-          <div className="overflow-hidden cut-overflow text-ellipsis">{task.content}</div>
-          <button type="button">
-            <Trash className="w-6 h-6 hover:scale-110" onClick={() => removeTask(task.id)} />
-          </button>
-        </li>
-      )}
-    </Draggable>
-  );
-};
+}) => (
+  <Draggable index={index} draggableId={task.id}>
+    {(provided) => (
+      <li
+        className="flex w-1/3 shadow-blue-500  max-w-full px-4 items-center py-2 border bg-indigo-700 justify-between text-white border-black rounded-lg gap-x-3 text-wrap"
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        ref={provided.innerRef}
+      >
+        <span className="font-bold">{index + 1}.</span>
+        <div className="overflow-hidden cut-overflow text-ellipsis text-nowrap ">{task.content}</div>
+        <button type="button">
+          <Trash className="w-6 h-6 hover:scale-110" onClick={() => removeTask(task.id)} />
+        </button>
+      </li>
+    )}
+  </Draggable>
+);
