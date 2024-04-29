@@ -19,14 +19,14 @@ export default function Hero() {
               kmatysiak-it@outlook.com
             </h1>
 
-            <div className="max-w-3xl mx-auto flex center items-stretch justify-center gap-x-4">
+            <div className="max-w-3xl mx-auto flex center items-stretch justify-center gap-x-4 text-nowrap">
               <a className="btn text-white h-12 bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto " href="#spaceData">
                 Task 1
               </a>
               <a className="btn text-white h-12 bg-blue-900 hover:bg-gray-800 w-full sm:w-auto " href="#imageGallery">
                 Task 2
               </a>
-              <a className="btn text-white h-12 bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto" href="#toDoList">
+              <a className="btn text-white h-12 bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto " href="#toDoList">
                 Task 3
               </a>
             </div>
