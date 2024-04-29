@@ -1,7 +1,7 @@
 'use client';
 
-import { Modal } from '@/components/ImageGallery/subcomponents/Modal';
-import { TaskContainer } from '@/components/ui/TaskContainer';
+import { Modal } from './subcomponents/Modal';
+import { TaskContainer } from '@/components/ui/taskContainer';
 import { images } from '@/public/utils';
 import { useState } from 'react';
 

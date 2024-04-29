@@ -1,6 +1,6 @@
 'use client';
 
-import { TaskContainer } from '@/components/ui/TaskContainer';
+import { TaskContainer } from '@/components/ui/taskContainer';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, DropResult, Droppable } from 'react-beautiful-dnd';
 import { Trash } from 'react-bootstrap-icons';
@@ -106,7 +106,7 @@ export default function ToDoList() {
   );
 }
 
-export const Task = ({ 
+export const Task = ({
   task,
   removeTask,
   index,

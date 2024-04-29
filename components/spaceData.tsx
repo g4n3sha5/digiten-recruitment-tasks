@@ -1,6 +1,6 @@
 'use client';
 
-import { TaskContainer } from '@/components/ui/TaskContainer';
+import { TaskContainer } from '@/components/ui/taskContainer';
 import { Chart, registerables } from 'chart.js';
 import { useEffect, useState } from 'react';
 import { GraphDownArrow, GraphUpArrow } from 'react-bootstrap-icons';
