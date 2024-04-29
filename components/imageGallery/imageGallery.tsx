@@ -26,7 +26,7 @@ export default function ImageGallery() {
         if (evt.key === 'ArrowRight') return incrementIndex();
       }}
       taskNumber={2}
-      taskDescription="You are tasked with creating a responsive image gallery component using React.js. The gallery should display a grid of 
+      taskDescription="You are tasked with creating a responsive image gallery component using React.js. The gal lery should display a grid of 
       thumbnail images, and users should be able to swipe left or right on a touch-enabled device (or use drag-and-drop on 
       a desktop) to navigate between images."
     >

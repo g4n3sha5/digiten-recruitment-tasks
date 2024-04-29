@@ -1,5 +1,4 @@
 import { images, sliderStates, sliderTransition } from '@/public/utils';
-import { useSwipeable } from 'react-swipeable';
 import { ChevronLeft, ChevronRight, XLg } from 'react-bootstrap-icons';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -14,28 +13,14 @@ interface ModalProps {
 export const Modal = ({ setImageOpen, incrementIndex, decrementIndex, currentIndex }: ModalProps) => {
   const [dragStartX, setDragStartX] = useState(0);
 
-  // Swipe handler on mobile using react-swipable
-  const handleSwipe = (deltaX: number) => {
-    if (deltaX > 50) {
-      incrementIndex();
-    } else if (deltaX < -50) {
-      decrementIndex();
-    }
-  };
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleSwipe(-100),
-    onSwipedRight: () => handleSwipe(100),
-  });
-
   // Handle "swipe" drag event on Desktop
-  const handleDragStart = (evt: MouseEvent | PointerEvent) => {
+  const handleDragStart = (evt: any) => {
     if (!evt.clientX) return;
     setDragStartX(evt.clientX);
     // Record the initial X position when mouse is pressed down
   };
 
-  const handleDragEnd = (evt: MouseEvent | PointerEvent) => {
+  const handleDragEnd = (evt: any) => {
     const deltaX = evt.clientX - dragStartX;
     if (deltaX > -75) {
       decrementIndex();
@@ -46,7 +31,6 @@ export const Modal = ({ setImageOpen, incrementIndex, decrementIndex, currentInd
 
   return (
     <div
-      {...swipeHandlers}
       onClick={() => {
         setImageOpen(false);
       }}
@@ -55,6 +39,7 @@ export const Modal = ({ setImageOpen, incrementIndex, decrementIndex, currentInd
     >
       <div className="w-full flex justify-center relative">
         <motion.div
+          // {...swipeHandlers}
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           onClick={(evt) => {
