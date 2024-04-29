@@ -3,3 +3,9 @@
 Leveraged my favourite stack - React, Tailwind, Typescript - to optimize performance and user experience across devices, showcasing strong proficiency in React state management and interactive UI design.
 
 Used react-chartJs, react-bootstrap-icons, react-beautiful-dnd
+
+# Run locally
+
+git clone
+npm install
+npm run dev
