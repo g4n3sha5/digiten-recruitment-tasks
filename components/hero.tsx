@@ -1,3 +1,5 @@
+import { Github } from 'react-bootstrap-icons';
+
 export default function Hero() {
   return (
     <section className=" bg-[#00c8ff] relative">
@@ -18,28 +20,30 @@ export default function Hero() {
             </h1>
 
             <div className="max-w-3xl mx-auto flex center justify-center gap-x-4">
-              <div>
-                <a
-                  className="btn text-white bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto sm:mb-0"
-                  href="#spaceData"
-                >
-                  Task 1
-                </a>
-              </div>
-              <div>
-                <a className="btn text-white bg-blue-900 hover:bg-gray-800 w-full sm:w-auto " href="#imageGallery">
-                  Task 2
-                </a>
-              </div>
-              <div>
-                <a
-                  className="btn text-white bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                  href="#toDoList"
-                >
-                  Task 3
-                </a>
-              </div>
+              <a
+                className="btn text-white bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto sm:mb-0"
+                href="#spaceData"
+              >
+                Task 1
+              </a>
+              <a className="btn text-white bg-blue-900 hover:bg-gray-800 w-full sm:w-auto " href="#imageGallery">
+                Task 2
+              </a>
+              <a
+                className="btn text-white bg-gray-900 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+                href="#toDoList"
+              >
+                Task 3
+              </a>
             </div>
+            <a
+              className="btn text-white mt-10 bg-blue-600 hover:bg-gray-900 w-full mb-4 sm:w-auto sm:mb-0"
+              href="https://github.com/g4n3sha5/digiten-recruitment-tasks"
+              target="_blank"
+            >
+              <Github className="w-7 h-7 mx-2" />
+              Code
+            </a>
           </div>
         </div>
       </div>
