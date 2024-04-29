@@ -29,6 +29,7 @@ export default function ToDoList() {
     const id = uuid();
     const newTask = { id: id, content: taskName };
     setTasks([...tasks, newTask]);
+    setTaskName('');
   };
 
   const removeTask = (taskId: string) => {
@@ -56,7 +57,7 @@ export default function ToDoList() {
     <TaskContainer
       tabIndex={0}
       id="toDoList"
-      className="relative min-h-screen pt-2 bg-indigo-600 "
+      className="min-h-[70vh] bg-indigo-600 "
       textColorClass="text-white"
       taskNumber={3}
       taskDescription="Create a to-do list application using React.js that allows users to add, reorder, and remove tasks using drag-and-drop 
@@ -74,6 +75,7 @@ export default function ToDoList() {
             placeholder="Enter task name..."
             onChange={(evt) => setTaskName(evt.target.value)}
             type="text"
+            value={taskName}
             className="rounded-xl w-2/3"
             minLength={1}
             maxLength={25}

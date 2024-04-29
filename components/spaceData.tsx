@@ -87,7 +87,7 @@ export default function SpaceData() {
     <TaskContainer
       id="spaceData"
       taskNumber={1}
-      className="relative min-h-screen pb-24 xpt-2"
+      className="pb-24"
       taskDescription="Your company is developing a dashboard to display real-time data from various sources. You are tasked with creating a data visualisation component that displays live data using React.js and integrates it with HTML
     and CSS for a seamless user interface"
     >
@@ -115,14 +115,14 @@ export default function SpaceData() {
               <div className="flex gap-x-2 md:gap-x-3">
                 <GraphUpArrow
                   className="h-5 w-5 md:w-7  cursor-pointer"
-                  color={sorting === 'asc' ? 'cyan' : 'black'}
+                  color={sorting === 'asc' ? 'green' : 'black'}
                   onClick={() => {
                     setSorting('asc');
                   }}
                 />
                 <GraphDownArrow
                   className="h-5 w-5 md:w-7  cursor-pointer"
-                  color={sorting === 'desc' ? 'cyan' : 'black'}
+                  color={sorting === 'desc' ? 'green' : 'black'}
                   onClick={() => {
                     setSorting('desc');
                   }}

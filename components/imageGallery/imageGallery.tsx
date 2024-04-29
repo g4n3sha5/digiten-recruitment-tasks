@@ -39,11 +39,11 @@ export default function ImageGallery() {
                 setImageOpen(true);
                 setCurrentIndex(index);
               }}
-              className={`cursor-pointer hover:scale-x-150 transition-all  z-10 hover:z-20 w-1/2 lg:w-1/4  overflow-hidden ${
+              className={`cursor-pointer hover:scale-x-150 transition-all [&>*]:object-cover  hover:[&>*]:object-fill z-10 hover:z-20 w-1/2 lg:w-1/4  overflow-hidden ${
                 currentIndex === index ? 'border-blue-500' : ''
               }`}
             >
-              <img src={image.src} alt="Sample image" className="h-[75vh] w-[80vw] hover w:object-fill object-cover " />
+              <img src={image.src} alt="Sample image" className="h-[75vh] w-[80vw]" />
             </div>
           ))}
         </div>
