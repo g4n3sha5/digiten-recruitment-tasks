@@ -63,8 +63,8 @@ export default function ToDoList() {
       taskDescription="Create a to-do list application using React.js that allows users to add, reorder, and remove tasks using drag-and-drop 
     interactions. This task will test your ability to work with React state management and user interactions."
     >
-      <div className="bg-indigo-500 flex flex-col items-center gap-y-3">
-        <h1 className="text-xl my-2 font-semibold">Drag and Drop To-Do List</h1>
+      <div className="bg-indigo-500 flex flex-col items-center py-4 gap-y-3">
+        <h1 className="text-xl my-2 font-semibold ">Drag and Drop To-Do List</h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -91,7 +91,7 @@ export default function ToDoList() {
           <Droppable droppableId="tasks">
             {(provided) => (
               <ul
-                className="bg-slate-300 pb-10 w-full py-4 flex flex-col gap-y-2 items-center text-xl px-5"
+                className="bg-slate-200 pb-10 w-full py-4 flex flex-col gap-y-2 items-center text-xl px-5"
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
