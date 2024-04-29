@@ -24,7 +24,6 @@ type SolarSystemObjectType =
   | 'moonsDwarfPlanet'
   | 'moonsAsteroid';
 
-// type ChartData = { labels: string[]; values: number[] };
 type ChartData = { label: string; value: number };
 
 export default function SpaceData() {
@@ -149,7 +148,8 @@ export default function SpaceData() {
                   maintainAspectRatio: false,
                   scales: {
                     y: {
-                      type: 'logarithmic', // Use logarithmic scale for the y-axis
+                      type: 'logarithmic',
+                      // Use logarithmic scale for the y-axis as the numbers differ a lot
                     },
                   },
                 }}
